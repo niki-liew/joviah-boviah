@@ -8,19 +8,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <div class="container">
-    <div class="box">
+<body style="margin: 0; overflow: hidden;"  >
+    <button onclick="runCode()">run code</button>
 
-      <button onclick="runCode()">run code</button>
-      <textarea id="code">print("Hello, world!")</textarea>
+  <div class="flexbox">
+    <div>
+
+      
+      <textarea id="code" style="resize: none; width: 50vw; height: 100vh">print("Hello, world!")</textarea>
       <br>
 
     </div>
 
-    <div class="box">
+    <div>
 
-      <pre id="terminal"></pre>
+      <pre id="terminal" style="width: 50vw; height: 100vh; background-color: #1e1e1e; color: #ffffff" ></pre>
       <!-- <input id="stdin" placeholder="Type input and press Enter" onkeydown="handleInput(event)" -->
 
     </div>
