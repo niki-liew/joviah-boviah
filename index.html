@@ -22,3 +22,102 @@
 
 <label for="details">Explain your answer:</label>
 <textarea id="details" name="explanation" rows="4" cols="50"></textarea>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Runner with Terminal</title>
+
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+
+      <button onclick="runCode()">Run Code</button>
+      <textarea id="code">print("Hello, world!")</textarea>
+      <br>
+
+    </div>
+
+    <div class="box">
+
+      <pre id="terminal"></pre>
+      <!-- <input id="stdin" placeholder="Type input and press Enter" onkeydown="handleInput(event)" -->
+
+    </div>
+  </div>
+
+  <script>
+    let pyodide;
+    let inputBuffer = [];
+
+    async function loadPyodideAndPackages() {
+      pyodide = await loadPyodide();
+
+      // stdout
+      pyodide.setStdout({
+        batched: (text) => {
+          document.getElementById("terminal").textContent += text;
+        }
+      });
+
+      // stderr
+      pyodide.setStderr({
+        batched: (text) => {
+          document.getElementById("terminal").textContent += text;
+        }
+      });
+
+      // override input()
+      pyodide.globals.set("input", async () => {
+        return new Promise(resolve => {
+          const check = () => {
+            if (inputBuffer.length > 0) {
+              resolve(inputBuffer.shift());
+            } else {
+              setTimeout(check, 100);
+            }
+          };
+          check();
+        });
+      });
+    }
+
+    loadPyodideAndPackages();
+
+    async function runCode() {
+      const code = document.getElementById("code").value;
+      const terminal = document.getElementById("terminal");
+      terminal.textContent = "";
+
+      try {
+        await pyodide.runPythonAsync(code);
+      } catch (err) {
+        terminal.textContent += err;
+      }
+    }
+
+    function handleInput(event) {
+      if (event.key === "Enter") {
+        const val = event.target.value;
+        inputBuffer.push(val);
+        document.getElementById("terminal").textContent += val + "\n";
+        event.target.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
