@@ -3,8 +3,45 @@
   /* gap: 10px;     */
 }
 
-/* TALK2MEARTH RIGHT BELLLOW HERE
+/* TALK2MEARTH RIGHT BELLLOW HERE */
+button {
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #0093cd;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    /* border: 2px solid #00907E; */
+    /* border-radius: 5px; */
+    cursor: pointer;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+body{
+  background-color:#333;
+}
+
+#terminal {
+  font-family: monospace;
+}
+
+textarea { 
+  background-color: #1e1c1c;
+  color: floralwhite;
+}
 
 
-
-*/
+.tooltip {
+    position: absolute;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 5px;
+    margin-left: 45px;
+    font-size: 14px;
+    z-index: 2;
+  }
