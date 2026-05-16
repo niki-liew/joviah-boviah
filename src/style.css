@@ -13,22 +13,49 @@ button {
     /* border: 2px solid #00907E; */
     /* border-radius: 5px; */
     cursor: pointer;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Cascadia Mono'
   }
 
-body{
-  background-color:#333;
+h1 {
+  font-family: 'Cascadia Mono';
+}
+
+h2 {
+  font-family: 'Cascadia Mono';
+}
+
+h3 {
+  font-family: 'Cascadia Mono';
+}
+
+p {
+  font-family: 'Arial';
+}
+
+label {
+  font-family: 'Arial';
+  color: #0093cd
+}
+
+input[type="text"] {
+  border-color: #006891;
 }
 
 #terminal {
-  font-family: monospace;
+  font-family: 'Cascadia Mono';
 }
 
-textarea { 
+#code { 
   background-color: #1e1c1c;
   color: floralwhite;
+  border-color: #000000;
+  font-family: 'Cascadia Mono';
 }
 
+textarea {
+  border-color: #006891;
+  font-family: 'Arial';
+}
 
 .tooltip {
     position: absolute;
@@ -45,3 +72,8 @@ textarea {
     font-size: 14px;
     z-index: 2;
   }
+
+button:hover+.tooltip {
+    opacity: 1;
+    visibility: visible;
+}
