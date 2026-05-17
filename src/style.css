@@ -34,7 +34,7 @@
 }
 
 .darkBlue {
-  color: #009cd9;
+  color: #5ac0ff;
 }
 
 .white {
@@ -47,6 +47,12 @@
 
 .bgWhite {
   background-color: #ffffff;
+}
+
+.divBackWanabe {
+  background-color: #00598c;  
+        border-radius: 50px; 
+        padding: 2% 2%;
 }
 
 /* TALK2MEARTH RIGHT BELLLOW HERE */
