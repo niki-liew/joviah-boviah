@@ -3,6 +3,52 @@
   /* gap: 10px;     */
 }
 
+.flexboxFill {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.flexboxFill > div {
+  flex: 1;
+}
+
+.divCenter {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+}
+
+.divLeft {
+  position: fixed;
+  left: 0
+}
+
+.divRight {
+  
+  margin-left: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.darkBlue {
+  color: #00415b;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.bgDarkBlue {
+    background-color: #7cdaff;
+}
+
+.bgWhite {
+  background-color: #ffffff;
+}
+
 /* TALK2MEARTH RIGHT BELLLOW HERE */
 button {
     display: inline-block;
