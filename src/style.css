@@ -29,11 +29,11 @@ h3 {
 }
 
 p {
-  font-family: 'Arial';
+  font-family: 'Cascadia Mono';
 }
 
 label {
-  font-family: 'Arial';
+  font-family: 'Cascadia Mono';
   color: #0093cd
 }
 
@@ -59,7 +59,7 @@ textarea {
 
 .tooltip {
     position: absolute;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     background-color: #333;
     color: #fff;
     padding: 5px 10px;
@@ -67,8 +67,6 @@ textarea {
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    margin-top: 5px;
-    margin-left: 45px;
     font-size: 14px;
     z-index: 2;
   }
