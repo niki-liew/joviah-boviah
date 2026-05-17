@@ -2,29 +2,29 @@
 
 <head>
 
-    <link rel="stylesheet" href="src/style.css?v=1779009639132">
+    <link rel="stylesheet" href="src/style.css?v=1779021208221">
     <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
     <script src="src/main.js?v=1779009051631" defer></script>
 
 </head>
 
 
-<body class="darkBlue">
+<body class="darkBlue" style="background-color: #00131f;">
 
     <div class="flexbox">
-        <div class="bgWhite">
+        <div >
             <h2>PyStart</h2>
         </div>
         <div class="divRight">
             <button>
-                <h3>
+                <p>
                     Log In
-                </h3>
+                </p>
             </button>
             <button>
-                <h3>
+                <p>
                     Sign Up
-                </h3>
+                </p>
             </button>
         </div>
     </div>
@@ -33,13 +33,17 @@
         <br>
         <br>
         <br>
-        <h1 class="center" style="font-size:400%;">Your Python Journey Starts Now</h1>
+        <div style="background-color: #00598c;  border-radius: 50px; padding: 25px 25px; border-color: #000000;
+    border-radius: 50px;">
+          <h1 class="center" style="font-size:400%; color: #5ac0ff">Your Python Journey Starts Now</h1>
+        </div>
         <br>
         <br>
         <div class="center">
             <button>
+                <h1 style="font-size: 350%;">Start Now</h1>
                 <h3>
-                    Start Now <br> (Log in / Sign up)
+                    (Log in / Sign up)
                 </h3>
             </button>
         </div>
@@ -76,7 +80,7 @@
             </div>
 
             <div>
-                <button onclick="runCode()">run code</button>
+                <button onclick="runCode()"><h3>Run Code</h3></button>
                 <textarea id="code" style="resize: none; width: 100%; height: 500">print("Hello, world!")</textarea>
             </div>
 
@@ -152,26 +156,3 @@
       }
     }
   </script>
-
-
-<!-- <h1>test</h1>
-<h2>test</h2>
-<h3>test</h3>
-<p>test</p>
-
-<button>test</button>
-<span class="tooltip">tooltip</span>
-
-<label for="answer">Your Answer:</label>
-<input type="text" id="answer" name="user_answer" placeholder="Type here...">
-
-<label for="details">Explain your answer:</label>
-<textarea id="details" name="explanation" rows="4" cols="50"></textarea>
-
-<br>
-
-<span class="tooltip">tooltip text</span>
-
-<br>
-
-<h1><a href="src/code.html">sand box</a></h1> -->
