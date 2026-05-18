@@ -12,11 +12,19 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();  
 
-async function signUp(email, password) {
+async function signUp(email, password, username) {
   const userCredential =
     await auth.createUserWithEmailAndPassword(email, password);
 
-  return userCredential.user;
+  const user = userCredential.user;
+
+  // create Firestore document immediately
+  await db.collection("users").doc(user.uid).set({
+    uName: username,
+    createdAt: Date.now()
+  });
+
+  return user;
 }
 
 function login(email, password) {
