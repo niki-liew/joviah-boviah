@@ -55,6 +55,10 @@
         padding: 2% 2%;
 }
 
+.no-resize {
+  resize: none;
+}
+
 /* TALK2MEARTH RIGHT BELLLOW HERE */
 
 button {
@@ -107,7 +111,7 @@ input[type="text"] {
 
 textarea {
   border-color: #006891;
-  font-family: 'Arial';
+  font-family: 'Cascadia Mono';
 }
 
 .tooltip {
