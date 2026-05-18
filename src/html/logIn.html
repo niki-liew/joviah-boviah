@@ -15,13 +15,13 @@
 
         <div class="divBackWanabe">
             <h3>Your Email: </h3>
-            <textarea>example_email@email.com</textarea>
+            <textarea id="email">example_email@email.com</textarea>
             <br>    
             <h3>Password</h3>
-            <textarea>example_password</textarea>
+            <textarea id="pass">example_password</textarea>
             <br>
             <br>
-            <button><h2>Log In</h2></button>
+            <button id="button"><h2>Log In</h2></button>
             <a href="signUp.html">
                 <p>Don't have an Account? Log in!</p>
             </a>
@@ -36,3 +36,14 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script src="..\main.js"></script>
+<script>
+
+const email = document.getElementById("email")
+const pass = document.getElementById("pass")
+const button = document.getElementById("button")
+
+button.addEventListener("click", () => {
+    login(email.value, pass.value)
+})
+
+</script>

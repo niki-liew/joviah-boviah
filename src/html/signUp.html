@@ -50,7 +50,7 @@ const pass2 = document.getElementById("pass2")
 const button = document.getElementById("button")
 
 button.addEventListener("click", () => {
-    if (pass1.value == pass2.value)
+    if (pass1.value === pass2.value)
     {
         signUp(email.value, pass1.value)
     }
