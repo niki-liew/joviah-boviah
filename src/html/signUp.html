@@ -14,11 +14,14 @@
         <br>
 
         <div class="divBackWanabe">
+            <h3>User Name</h3>
+            <textarea id="uName" class="no-resize">example_user_name</textarea>
+
             <h3>Your Email: </h3>
             <textarea id="email" class="no-resize">example_email@email.com</textarea>
             <br>    
 
-            <h3>New Password</h3>
+            <h3>Password</h3>
             <textarea id="pass1" class="no-resize">example_password</textarea>
             <br>
 
@@ -48,11 +51,13 @@ const email = document.getElementById("email")
 const pass1 = document.getElementById("pass1")
 const pass2 = document.getElementById("pass2")
 const button = document.getElementById("button")
+const uName = document.getElementById("uName")
 
 button.addEventListener("click", () => {
     if (pass1.value === pass2.value)
     {
         signUp(email.value, pass1.value)
+        updateData({uName: uName.value})
     }
     else
     {
