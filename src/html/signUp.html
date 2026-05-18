@@ -53,16 +53,16 @@ const pass2 = document.getElementById("pass2")
 const button = document.getElementById("button")
 const uName = document.getElementById("uName")
 
-button.addEventListener("click", () => {
-    if (pass1.value === pass2.value)
-    {
-        signUp(email.value, pass1.value)
-        updateData({uName: uName.value})
-    }
-    else
-    {
-        alert("Passwords are NOT the same")
-    }
-})
+button.addEventListener("click", async () => {
+    if (pass1.value === pass2.value) {
 
+        const user = await signUp(email.value, pass1.value);
+
+        await updateData({ uName: uName.value });
+
+    } 
+    else {
+        alert("Passwords are NOT the same");
+    }
+});
 </script>
