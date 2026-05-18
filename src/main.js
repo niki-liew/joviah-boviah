@@ -10,7 +10,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
-const db = firebase.firestore();
+const db = firebase.firestore();  
 
 function signUp(email, password) {
   auth.createUserWithEmailAndPassword(email, password)
@@ -43,5 +43,17 @@ function loadData() {
     .get()
     .then(doc => {
       console.log(doc.data());
+    });
+}
+
+function updateData(data) {
+  const user = auth.currentUser;
+
+  db.collection("users").doc(user.uid).update(data)
+    .then(() => {
+      console.log("Data updated");
+    })
+    .catch(err => {
+      alert(err.message);
     });
 }
