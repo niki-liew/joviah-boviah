@@ -14,6 +14,17 @@
   flex: 1;
 }
 
+.flexboxFillv {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flexboxFillv > div {
+  flex: 1;
+}
+
 .divCenter {
   display: flex;
   justify-content: center; /* Centers horizontally */
