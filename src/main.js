@@ -18,7 +18,6 @@ async function signUp(email, password, username) {
 
   const user = userCredential.user;
 
-  // create Firestore document immediately
   await db.collection("users").doc(user.uid).set({
     uName: username,
     createdAt: Date.now()
@@ -27,36 +26,42 @@ async function signUp(email, password, username) {
   return user;
 }
 
-function login(email, password) {
-  auth.signInWithEmailAndPassword(email, password)
-    .then(user => {
-      console.log("Logged in:", user.user.uid);
-    })
-    .catch(err => alert(err.message));
+
+async function login(email, password) {
+  try {
+    const userCredential =
+      await auth.signInWithEmailAndPassword(email, password);
+
+    const user = userCredential.user;
+
+    console.log("Logged in:", user.uid);
+
+    return user;
+  } catch (err) {
+    alert(err.message);
+  }
 }
 
-function saveData(data) {
-  const user = auth.currentUser;
 
-  db.collection("users").doc(user.uid).set({
+function saveData(uid, data) {
+  return db.collection("users").doc(uid).set({
     data: data
-  });
+  }, { merge: true });
 }
 
-function loadData() {
-  const user = auth.currentUser;
 
-  db.collection("users").doc(user.uid)
+function loadData(uid) {
+  return db.collection("users").doc(uid)
     .get()
     .then(doc => {
-      console.log(doc.data());
+      return doc.data();
     });
 }
 
-function updateData(data) {
-  const user = auth.currentUser;
 
-  db.collection("users").doc(user.uid).update(data)
+function updateData(uid, data) {
+  return db.collection("users").doc(uid)
+    .set(data, { merge: true })
     .then(() => {
       console.log("Data updated");
     })

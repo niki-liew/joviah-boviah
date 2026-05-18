@@ -46,23 +46,23 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script src="..\main.js"></script>
 <script>
-
-const email = document.getElementById("email")
-const pass1 = document.getElementById("pass1")
-const pass2 = document.getElementById("pass2")
-const button = document.getElementById("button")
-const uName = document.getElementById("uName")
-
 button.addEventListener("click", async () => {
-    if (pass1.value === pass2.value) {
 
-        const user = await signUp(email.value, pass1.value);
+    const email = document.getElementById("email").value;
+    const pass1 = document.getElementById("pass1").value;
+    const pass2 = document.getElementById("pass2").value;
+    const username = document.getElementById("uName").value;
 
-        await updateData({ uName: uName.value });
-
-    } 
-    else {
+    if (pass1 !== pass2) {
         alert("Passwords are NOT the same");
+        return;
     }
+
+    const user = await signUp(email, pass1, username);
+
+    await updateData(user.uid, {
+        uName: username || "anon"
+    });
+
 });
 </script>
