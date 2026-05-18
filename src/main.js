@@ -12,12 +12,11 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();  
 
-function signUp(email, password) {
-  auth.createUserWithEmailAndPassword(email, password)
-    .then(user => {
-      console.log("Signed up:", user.user.uid);
-    })
-    .catch(err => alert(err.message));
+async function signUp(email, password) {
+  const userCredential =
+    await auth.createUserWithEmailAndPassword(email, password);
+
+  return userCredential.user;
 }
 
 function login(email, password) {
