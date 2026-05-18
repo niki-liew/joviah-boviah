@@ -3,8 +3,8 @@
 </head>
 
 <body class="darkBlue" style="background-color: #00131f;">
-
     <div class="bgDarkBlue center">
+        
         <br>
 
         <div class="divBackWanabe">
@@ -15,16 +15,22 @@
 
         <div class="divBackWanabe">
             <h3>Your Email: </h3>
-            <textarea>example_email@email.com</textarea>
+            <textarea id="email">example_email@email.com</textarea>
             <br>    
+
             <h3>New Password</h3>
-            <textarea>example_password</textarea>
+            <textarea id="pass1">example_password</textarea>
             <br>
+
             <h3>Repeat Password</h3>
-            <textarea>example_password</textarea>
+            <textarea id="pass2">example_password</textarea>
             <br>
+
             <br>
-            <button><h2>Sign Up</h2></button>
+            <button id="button"><h2>Sign Up</h2></button>
+            <a href="logIn.html">
+                <p>Have an Account? Log in!</p>
+            </a>
         </div>
 
         <br>
@@ -34,4 +40,24 @@
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script src="..\main.js"></script>
+<script>
+
+const email = document.getElementById("email")
+const pass1 = document.getElementById("pass1")
+const pass2 = document.getElementById("pass2")
+const button = document.getElementById("button")
+
+button.addEventListener("click", () => {
+    if (pass1.value == pass2.value)
+    {
+        signUp(email.value, pass1.value)
+    }
+    else
+    {
+        alert("Passwords are NOT the same")
+    }
+})
+
+</script>
