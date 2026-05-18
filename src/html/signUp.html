@@ -61,7 +61,8 @@ button.addEventListener("click", async () => {
     const user = await signUp(email, pass1, username);
 
     await updateData(user.uid, {
-        uName: username || "anon"
+        uName: username || "anon",
+        points: 0,
     });
 
 });
