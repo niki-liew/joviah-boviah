@@ -38,15 +38,21 @@
 <script src="..\main.js"></script>
 <script>
 
+var debounce = true
+
 const email = document.getElementById("email")
 const pass = document.getElementById("pass")
 const button = document.getElementById("button")
 
 button.addEventListener("click", async () => {
+    if (debounce)
+    {
+        debounce = false
+        console.log("loading")
 
-    const user = await login(email.value, pass.value);
+        const user = await login(email.value, pass.value);
 
-    window.location.href = "home.html";
-
+        window.location.href = "home.html";
+    }
 });
 </script>
