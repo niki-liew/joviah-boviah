@@ -50,6 +50,8 @@ button.addEventListener("click", async () => {
         debounce = false
         console.log("loading")
 
+        popup("Loading. Please wait.")
+
         const user = await login(email.value, pass.value);
 
         window.location.href = "home.html";

@@ -69,3 +69,28 @@ function updateData(uid, data) {
       alert(err.message);
     });
 }
+
+
+
+
+function popup(message) {
+  // create popup container
+  const popup = document.createElement("div");
+  popup.style.position = "fixed";
+  popup.style.top = "50%";
+  popup.style.left = "50%";
+  popup.style.transform = "translate(-50%, -50%)";
+  popup.style.padding = "20px";
+  popup.style.background = "white";
+  popup.style.border = "2px solid black";
+  popup.style.zIndex = "1000";
+  popup.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
+
+  // message
+  popup.innerHTML = `<h1>${message}</h1>`;
+
+  // close on click
+  popup.onclick = () => popup.remove();
+
+  document.body.appendChild(popup);
+}

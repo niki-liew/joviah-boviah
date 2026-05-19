@@ -54,6 +54,8 @@ button.addEventListener("click", async () => {
         debounce = false
         console.log("loading")
 
+        popup("Loading. Please wait.")
+
         const email = document.getElementById("email").value;
         const pass1 = document.getElementById("pass1").value;
         const pass2 = document.getElementById("pass2").value;
