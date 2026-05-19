@@ -42,8 +42,11 @@ const email = document.getElementById("email")
 const pass = document.getElementById("pass")
 const button = document.getElementById("button")
 
-button.addEventListener("click", () => {
-    login(email.value, pass.value)
-})
+button.addEventListener("click", async () => {
 
+    const user = await login(email.value, pass.value);
+
+    window.location.href = "home.html";
+
+});
 </script>
